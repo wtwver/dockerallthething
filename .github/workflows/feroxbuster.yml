@@ -22,7 +22,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       # - uses: actions/checkout@v2
-      - run: git clone https://github.com/epi052/feroxbuster
+      - run: git clone https://github.com/wtwver/feroxbuster
       -
         name: Build and push
         id: docker_build
