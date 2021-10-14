@@ -1,4 +1,4 @@
-name: feroxbuster-dockerhub
+name: nmap-dockerhub
 
 on:
   workflow_dispatch:
