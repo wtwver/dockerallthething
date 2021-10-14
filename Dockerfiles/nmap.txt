@@ -1,0 +1,10 @@
+FROM alpine
+
+RUN apk update && apk add --no-cache nmap nmap-scripts git
+
+RUN git clone --depth 1 https://github.com/vulnersCom/nmap-vulners /usr/share/nmap/scripts/vulners 
+# RUN git clone --depth 1 https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan
+RUN nmap --script-updatedb
+
+ENTRYPOINT ["nmap", "-A", "-p-", "-T5" ,"--script=vulners/vulners.nse"]
+CMD "hackerone.com"
