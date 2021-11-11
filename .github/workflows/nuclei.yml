@@ -23,10 +23,28 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       # - uses: actions/checkout@v2
       -
-        name: Build and push
+        name: nuclei
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           file: ./Dockerfiles/nuclei.txt
           push: true
           tags: wtwver/nuclei:latest
+
+      -
+        name: ubuntu
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          file: ./Dockerfiles/ubuntu.txt
+          push: true
+          tags: wtwver/ubuntu:latest
+
+      -
+        name: alpine
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          file: ./Dockerfiles/alpine.txt
+          push: true
+          tags: wtwver/alpine:latest
